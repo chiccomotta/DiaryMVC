@@ -1,14 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DiaryApp.Models;
+namespace Diary.Domain.Models;
 
 public class DiaryEntry
 {
     public int Id { get; set; }
+    
     [Required]
-    public string Title { get; set; }
+    [MaxLength(150)]
+    public required string Title { get; set; }
+    
     [Required]
-    public string Content { get; set; }
+    [MaxLength(1024)]
+    public required string Content { get; set; }
+
     [Required]
     public DateTime CreateDate { get; set; } = DateTime.UtcNow;
 }

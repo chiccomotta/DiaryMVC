@@ -1,4 +1,6 @@
-﻿using Diary.Domain.Models;
+﻿using System.Diagnostics;
+using Diary.Domain.Models;
+using DiaryApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,5 +19,17 @@ public class DiaryEntriesController : Controller
     {
         var entries = await _dbContext.DiaryEntries.ToListAsync();
         return View(entries);
+    }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(DiaryEntry request)
+    {
+        Debug.WriteLine(request);
+        return View();
     }
 }
