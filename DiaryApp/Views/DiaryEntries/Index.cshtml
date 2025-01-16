@@ -27,7 +27,14 @@
                     <td>@entry.Title</td>
                     <td>@entry.Content</td>
                     <td>@entry.CreateDate</td>
-                    <td>Edit and Delete</td>
+                    <td><a asp-controller="DiaryEntries" asp-action="Edit" asp-route-id="@entry.Id" class="btn btn-primary btn-sm">
+                            <i class="bi bi-pencil"></i> Edit
+                        </a>
+                    </td>
+                    <td><a asp-controller="DiaryEntries" asp-action="Delete" asp-route-id="@entry.Id" class="btn btn-primary btn-sm">
+                            <i class="bi bi-pencil"></i> Delete
+                        </a>
+                    </td>
             </tr>
         }
         </tbody>
